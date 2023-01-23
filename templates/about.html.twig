@@ -1,0 +1,38 @@
+<h1>About</h1>
+<p>Vous pouvez trouver ici des informations sur moi.</p>
+<p>Mon adresse email est : {{ email }} </p>
+
+<h2>Mes compétences</h2>
+<ul>
+    {% for skill in skills %}
+        <li>{{ skill }}</li>
+    {% endfor %}
+</ul>
+
+<h2>Mes projets</h2>
+<ul>
+    {% for project in projects %}
+        <li>
+            <strong>{{ project.name }}</strong> - {{ project.description }}
+            {% if project.link %}
+                <a href="{{ project.link }}">Voir le projet</a>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+
+<h2>Ma formation</h2>
+{% if education %}
+    <ul>
+        {% for school in education %}
+            <li>
+                <strong>{{ school.name }}</strong> - {{ school.degree }}
+                {% if school.graduation %}
+                    (Diplômé en {{ school.graduation|date('Y') }})
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Aucune information sur ma formation.</p>
+{% endif %}

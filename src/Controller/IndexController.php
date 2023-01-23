@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class IndexController
 {
     #[Route('/')]
-    public function home(): Response
+    public function index(): Response
     {
     
 
